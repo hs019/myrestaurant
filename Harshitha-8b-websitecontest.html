@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Dream Indian Restaurant</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #fffdf6;
+    }
+
+    header {
+      background: #c0392b;
+      color: white;
+      text-align: left;
+      padding: 20px;
+    }
+	.logo{
+		height: 140px;
+		vertical-align: middle;
+		margin-left: 10px;
+	}
+	h1{margin-top: 10px;}
+nav {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    nav a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background-color: #575757;
+    }
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+	.banner {
+      width: 100%;
+      height: auto;
+	  max-height:600px;
+    }
+	.title{float:left; width:100%; font-size:36px; color:red; font-style:italic;}
+    .item{
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 250px;
+      padding: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .item img {
+      width: 100%;
+      border-radius: 10px;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .item h3 {
+      margin: 10px 0 5px;
+      color: #b03a2e;
+    }
+
+    .item p {
+      margin: 0 0 10px;
+    }
+
+    .item button {
+      background-color: #e67e22;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #cart, #checkout {
+      padding: 20px;
+      background: #f4f4f4;
+      border-top: 2px solid #ccc;
+    }
+
+    #cart ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #cart li {
+      margin: 5px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .remove-btn {
+      background: #c0392b;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    form button {
+      background: #27ae60;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+	.footer{ background-color:#000; color:white;margin-top:10px; padding-bottom:10px;}
+	.footer p{color:#FFF; padding-left:10px;}
+
+    @media (max-width: 600px) {
+      .menu {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+ <header>
+  <img src="images/logo.jpg" class="logo" alt="Flavours of Bharath Logo">
+  <div style="display: inline-block; margin-left: 10px;">
+    <h1>Flavours of Bharath</h1>
+    <p>Where taste meets the myth!</p>
+  </div>
+</header>
+  <nav>
+    <a href="#starters">Starters</a><!-- # -- link to the same page -->
+    <a href="#main">Main Course (veg)</a>
+    <a href="#main">Main course (non-veg)</a>
+    <a href="#Indian breads">Indian breads</a>
+    <a href="#Rice Specialties">Rice Specialties</a>
+	<a href="#Desserts">Desserts</a>
+	<a href="#Drinks">Drinks</a>
+	<a href="#contact">contact</a>
+</nav>
+<section>
+<img src="images/banner.jpg" alt="Banner" class="banner">
+</section>
+  <section class="menu" id="starters">
+	<div class="title">Starters</div>
+    <div class="item">
+      <img src="images/Chicken-Tikka-LOW-RES-1-819x1024.jpg" alt="Chicken tikka">
+      <h3>Chicken tikka</h3>
+      <p>RM 250</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+
+    <div class="item" >
+      <img src="images/air-fryer-paneer-tikka-featured.jpg" alt="Paneer Tikka">
+      <h3>Paneer Tikka</h3>
+      <p>RM 180</p>
+      <button onclick="addToCart('Paneer Tikka', 180)">Add to Cart</button>
+    </div>
+
+    <div class="item">
+      <img src="images/1200-by-1200-images-2.jpg" alt="Chicken Biryani">
+      <h3>Chicken tandori</h3>
+      <p>Rm 32</p>
+      <button onclick="addToCart('Chicken Biryani', 220)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/hara-bhara-kebab_.jpg" alt="Alt Image">
+      <h3>Hara hara kebab</h3>
+      <p>RM 15</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/samosa-recipe.jpg" alt="Alt Image">
+      <h3>Samosa</h3>
+      <p>RM 2</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/hq720.jpg" alt="Alt Image">
+      <h3>Aloo thika</h3>
+      <p>RM 25</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/chicken-pakora-recipe-1.jpg" alt="Chicken Biryani">
+      <h3>Chicken pakora</h3>
+      <p>RM 15</p>
+      <button onclick="addToCart('Chicken Biryani', 220)">Add to Cart</button>
+    </div><div class="item">
+      <img src="images/chicken-lollipop-500x500.jpg" alt="Chicken Biryani">
+      <h3>Chicken lollipop</h3>
+      <p>RM 15</p>
+      <button onclick="addToCart('Chicken Biryani', 220)">Add to Cart</button>
+    </div>
+  </section>
+  <section class="menu" id="main">
+    <div class="title">Main Veg Course</div>
+    <div class="item">
+      <img src="images/paneer-butter-masala-recipe-2.jpg" alt="Alt Image">
+      <h3>paneer butter masala</h3>
+      <p>RM 25</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+
+    <div class="item" >
+      <img src="images/veg-biryani-recipe-500x500.jpg" alt="Paneer Tikka">
+      <h3>Veg biryani</h3>
+      <p>RM 18</p>
+      <button onclick="addToCart('Paneer Tikka', 180)">Add to Cart</button>
+    </div>
+
+    <div class="item">
+      <img src="images/dal-makhani-feature-225x225.jpg" alt="Chicken Biryani">
+      <h3>Dal makhani</h3>
+      <p>RM 22</p>
+      <button onclick="addToCart('Chicken Biryani', 220)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/chana-masala-recipe.jpg" alt="Alt Image">
+      <h3>Chana masala</h3>
+      <p>RM 25</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/Baigan_Bharta_from_Nagpur (1).jpg" alt="Alt Image">
+      <h3>Bargina Bharta</h3>
+      <p>RM 25</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/Best-Malai-Kofta-recipe.jpg" alt="Alt Image">
+      <h3>Malai Kofta</h3>
+      <p>RM 22</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/paneer-korma-07a67d4.jpg" alt="Alt Image">
+      <h3> Vegetable korma</h3>
+      <p>RM 22</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+  </section>
+  <section class="menu" id="main-non-veg">
+  <div class="title">Main non veg</div>
+    <div class="item">
+      <img src="images/restaurant-style-butter-chicken.jpg" alt="Alt Image">
+      <h3> Butter chicken </h3>
+      <p>RM 25</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+
+    <div class="item" >
+      <img src="images/Chicken-Biryani-Recipe-01-1.jpg" alt="Paneer Tikka">
+      <h3>chicken biryani</h3>
+      <p>RM 18</p>
+      <button onclick="addToCart('Paneer Tikka', 180)">Add to Cart</button>
+    </div>
+
+    <div class="item">
+      <img src="images/20210117_140718-scaled.jpg" alt="Chicken Biryani">
+      <h3>Muttton kurma</h3>
+      <p>RM 22</p>
+      <button onclick="addToCart('Chicken Biryani', 220)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/kmc_20230323_230721-500x500.jpg" alt="Alt Image">
+      <h3>MUtton biryani</h3>
+      <p>RM 25</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/Prawn-Masala-Fry-23.jpg" alt="Alt Image">
+      <h3>Prawn masala</h3>
+      <p>RM 25</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/fish-biryani.jpg" alt="Alt Image">
+      <h3>Fish biryani</h3>
+      <p>RM 22</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/shutterstock_1891229332.jpg" alt="Alt Image">
+      <h3> Machher Jhol</h3>
+      <p>RM 22</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+  </section>
+  <section class="menu" id="Indian breads">
+  <div class="title">Indian breads</div>
+    <div class="item">
+      <img src="images/Butter-Naan-3-500x500.jpg" alt="Alt Image">
+      <h3>Butter Naan</h3>
+      <p>RM 25</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+
+    <div class="item" >
+      <img src="images/Garlic-Naan-3.jpg" alt="Paneer Tikka">
+      <h3>Garlic Naan</h3>
+      <p>RM 18</p>
+      <button onclick="addToCart('Paneer Tikka', 180)">Add to Cart</button>
+    </div>
+
+    <div class="item">
+      <img src="images/Tandoori Roti.jpg" alt="Chicken Biryani">
+      <h3>Tandoori Roti</h3>
+      <p>RM 22</p>
+      <button onclick="addToCart('Chicken Biryani', 220)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/pumpkin-paratha-recipe.jpg" alt="Alt Image">
+      <h3>Paratha</h3>
+      <p>RM 25</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/poori-puri-recipe.jpg" alt="Alt Image">
+      <h3>Puri</h3>
+      <p>RM 25</p>
+     </section>
+  <section class="menu" id="Rice Specialties">
+  <div class="title">Rice Specialties</div>
+    <div class="item">
+      <img src="images/Perfect-Jeera-Rice-Indian-Cumin-Rice-4.jpg" alt="Alt Image">
+      <h3>Jeera Rice</h3>
+      <p>RM 25</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+
+   
+
+    <div class="item">
+      <img src="images/lemon-rice-recipe.jpg" alt="Chicken Biryani">
+      <h3>Lemon Rice </h3>
+      <p>RM 22</p>
+      <button onclick="addToCart('Chicken Biryani', 220)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/curd-rice-thayir-sadam.jpg" alt="Alt Image">
+      <h3>Curd rice</h3>
+      <p>RM 25</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/Dal_Khichdi_Dhaba_Style_Restaurant_Style.png" alt="Alt Image">
+      <h3>Khichdi</h3>
+      <p>RM 25</p>
+	  <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+	  </div>
+	  <div class="item">
+      <img src="images/kharzi_rice_of_Arunachal_pradesh.jpg" alt="Alt Image">
+      <h3>Kharzi</h3>
+      <p>RM 25</p>
+	  <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+	  </div>
+	 
+     </section>
+	 <section class="menu" id="Drinks">
+  <div class="title">Drinks</div>
+    <div class="item">
+      <img src="images/lassi.jpeg" alt="Alt Image">
+      <h3>Lassi</h3>
+      <p>RM 25</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+	<div class="item" >
+      <img src="images/Nimbu Pani.jpg" alt="Paneer Tikka">
+      <h3>Nimbu Pani  </h3>
+      <p>RM 18</p>
+      <button onclick="addToCart('Paneer Tikka', 180)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/Sugarcane Juice.AVIF" alt="Chicken Biryani">
+      <h3>Sugarcane Juice</h3>
+      <p>RM 22</p>
+      <button onclick="addToCart('Chicken Biryani', 220)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/Masala Chai.webp" alt="Alt Image">
+      <h3>Masala Chai</h3>
+      <p>RM 25</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+	
+	  <div class="item">
+      <img src="images/Filter Coffee.WEBP" alt="Alt Image">
+      <h3>Filter Coffee</h3>
+      <p>RM 25</p>
+	  <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+	  </div>
+	  
+     </section>
+	  <section class="menu" id="Desserts">
+  <div class="title">Desserts</div>
+    <div class="item">
+      <img src="images/indian-gulab-jamun-chefdehome-1.jpg" alt="Alt Image">
+      <h3>Gulab jamun</h3>
+      <p>RM 25</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+	<div class="item" >
+      <img src="images/Rasgulla.jpg" alt="Paneer Tikka">
+      <h3>Rasgulla </h3>
+      <p>RM 18</p>
+      <button onclick="addToCart('Paneer Tikka', 180)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/images.jpeg" alt="Chicken Biryani">
+      <h3> Ladoo </h3>
+      <p>RM 22</p>
+      <button onclick="addToCart('Chicken Biryani', 220)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/Barfi.jpg" alt="Alt Image">
+      <h3>Barfi</h3>
+      <p>RM 25</p>
+      <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <img src="images/Kulfi.jpg" alt="Alt Image">
+      <h3>Kulfi</h3>
+      <p>RM 25</p>
+	  <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+	  </div>
+	  <div class="item">
+      <img src="images/Barfi.WEBP" alt="Alt Image">
+      <h3>Barfi</h3>
+      <p>RM 25</p>
+	  <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+	  </div>
+	  <div class="item">
+      <img src="images/semiya-payasam1.jpg" alt="Alt Image">
+      <h3>Payasam</h3>
+      <p>RM 25</p>
+	  <button onclick="addToCart('Butter Chicken', 250)">Add to Cart</button>
+	  </div>
+     </section>
+
+  <section id="cart">
+    <h2>🛒 Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="total">Total: RM 0</p>
+  </section>
+
+  <section id="checkout">
+    <h2>🧾 Checkout</h2>
+    <form id="checkout-form" onsubmit="return placeOrder()">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" required pattern="[0-9]{10}" placeholder="10-digit number">
+
+      <label for="address">Delivery Address:</label>
+      <textarea id="address" rows="3" required></textarea>
+
+      <label for="payment">Payment Method:</label>
+      <select id="payment" required>
+        <option value="">--Select--</option>
+        <option value="Cash">Cash on Delivery</option>
+        <option value="Card">Credit/Debit Card</option>
+        <option value="UPI">UPI</option>
+      </select>
+
+      <button type="submit">Place Order</button>
+    </form>
+	
+	<div class="footer">
+	<p style="font-weight:bold; font-size:24px">BY:</p>
+	<p>8 B</p>
+	<p>Devloper:Harshitha</p>
+	<p>Designers:Aarna and Bhavika</p>
+	</div>
+  </section>
+
+  <script>
+    let cart = [];
+    let total = 0;
+
+    function addToCart(itemName, price) {
+      const found = cart.find(item => item.name === itemName);
+      if (found) {
+        found.quantity += 1;
+      } else {
+        cart.push({ name: itemName, price: price, quantity: 1 });
+      }
+      updateCart();
+    }
+
+    function removeFromCart(itemName) {
+      cart = cart.filter(item => item.name !== itemName);
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartList = document.getElementById('cart-items');
+      cartList.innerHTML = '';
+      total = 0;
+
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          ${item.name} x${item.quantity} - RM ${item.price * item.quantity}
+          <button class="remove-btn" onclick="removeFromCart('${item.name}')">Remove</button>
+        `;
+        cartList.appendChild(li);
+        total += item.price * item.quantity;
+      });
+
+      document.getElementById('total').textContent = `Total: RM ${total}`;
+    }
+
+    function placeOrder() {
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const address = document.getElementById("address").value;
+      const payment = document.getElementById("payment").value;
+
+      if (cart.length === 0) {
+        alert("Your cart is empty. Please add items first.");
+        return false;
+      }
+
+      const orderSummary = cart.map(item => `${item.name} x${item.quantity}`).join(', ');
+      const totalPrice = total;
+
+      alert(`Thank you, ${name}! Your order has been placed.\n\nOrder Summary: ${orderSummary}\nTotal: RM ${totalPrice}\nDelivery to: ${address}\nPayment Method: ${payment}\nContact: ${phone}`);
+
+      cart = [];
+      total = 0;
+      updateCart();
+      document.getElementById("checkout-form").reset();
+
+      return false; // Prevent form reload
+    }
+  </script>
+
+</body>
+</html
